@@ -1,0 +1,13 @@
+venv/
+build/
+dist/
+.qzdd_save.json
+output/
+__pycache__/
+*.pyc
+web/node_modules/
+web/dist/
+dist_web/
+.qzdd_attachments/
+.DS_Store
+dist_V5旧版备份/

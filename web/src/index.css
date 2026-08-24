@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  font-family: "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+  background: #f3f5f7;
+}
+
+/* 打印/归档场景下禁用文本选择闪烁 */
+input,
+textarea {
+  outline: none;
+}

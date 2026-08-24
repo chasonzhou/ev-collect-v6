@@ -1,0 +1,7 @@
+python-docx>=1.1.0
+openpyxl>=3.1.0
+pywebview>=6.0
+# macOS 窗口需要（Windows 不需要，安装时用环境标记区分）
+pyobjc-core; sys_platform == "darwin"
+pyobjc-framework-Cocoa; sys_platform == "darwin"
+pyobjc-framework-WebKit; sys_platform == "darwin"
