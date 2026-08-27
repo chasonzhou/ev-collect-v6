@@ -2,16 +2,21 @@
 chcp 65001 >nul
 REM ============================================
 REM  审计取证单生成器 - Windows 一键打包脚本
-REM  前置条件：本机已安装 Python 3.10+ 和 Node.js 18+
+REM  前置条件：本机已安装 Python 3.10+
+REM  （web\dist 已存在时无需 Node.js，自动跳过前端构建）
 REM ============================================
 setlocal
 cd /d "%~dp0"
 
-echo [1/4] 构建前端...
-cd web
-call npm ci || goto :err
-call npm run build || goto :err
-cd ..
+if exist web\dist\index.html (
+    echo [1/4] 检测到前端已构建，跳过 npm 步骤
+) else (
+    echo [1/4] 构建前端（需要 Node.js）...
+    cd web
+    call npm ci || goto :err
+    call npm run build || goto :err
+    cd ..
+)
 
 echo [2/4] 准备 Python 环境...
 if not exist venv (
